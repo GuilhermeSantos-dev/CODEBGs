@@ -2,20 +2,39 @@
    CODEBGs — interações da landing page
    ============================================================ */
 
-/* >>> AJUSTE AQUI: número do WhatsApp (formato internacional, só dígitos)
-   Ex.: 55 (Brasil) + 11 (DDD) + número. Sem espaços, sem +, sem traços. */
+/* >>> AJUSTE AQUI: número do WhatsApp.
+   Pode digitar como quiser — o código remove espaços, +, () e -.
+   Precisa ter: 55 (Brasil) + DDD + número. Ex.: 5511999999999 */
 const WHATSAPP_NUMERO = "5511922316433";
 
 const WHATSAPP_MSG_PADRAO =
   "Olá, CODEBGs! Encontrei vocês pela landing page e quero automatizar um processo.";
 
+// Deixa só os dígitos do número (evita link quebrado)
+const NUM = WHATSAPP_NUMERO.replace(/\D/g, "");
+
+// Monta o link do WhatsApp
+const linkWhats = (msg) =>
+  `https://wa.me/${NUM}?text=${encodeURIComponent(msg)}`;
+
+// Abre o WhatsApp de forma que o navegador não bloqueie (clique de link real)
+function abrirWhatsApp(url) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.target = "_blank";
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  // Reforço: se por algum motivo a aba não abrir, navega na mesma aba
+  setTimeout(() => { window.location.href = url; }, 400);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Ano no rodapé
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Links diretos de WhatsApp
-  const linkWhats = (msg) =>
-    `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(msg)}`;
+  // Links diretos de WhatsApp (botões do topo e rodapé)
   ["whatsDirect", "whatsFooter"].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.href = linkWhats(WHATSAPP_MSG_PADRAO);
@@ -95,9 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
     note.classList.remove("err");
     note.textContent = "Abrindo o WhatsApp com seus dados…";
 
-    window.open(linkWhats(texto), "_blank", "noopener");
+    abrirWhatsApp(linkWhats(texto));
     form.reset();
-    setTimeout(() => { note.textContent = "Pronto! É só enviar a mensagem no WhatsApp."; }, 900);
+    setTimeout(() => { note.textContent = "Pronto! É só enviar a mensagem no WhatsApp."; }, 1200);
   });
 
   // Remove estado inválido ao digitar
