@@ -84,12 +84,21 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
 
-    const campos = ["nome", "contato", "mensagem"];
-    let valido = true;
-    campos.forEach((id) => {
+    // Lê o valor de um campo com segurança (nunca quebra se o campo não existir)
+    const val = (id) => {
       const el = document.getElementById(id);
-      const vazio = !el.value.trim();
-      el.classList.toggle("invalid", vazio);
+      return el && typeof el.value === "string" ? el.value.trim() : "";
+    };
+    const marca = (id, invalido) => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle("invalid", invalido);
+    };
+
+    const obrigatorios = ["nome", "campo-contato", "mensagem"];
+    let valido = true;
+    obrigatorios.forEach((id) => {
+      const vazio = val(id) === "";
+      marca(id, vazio);
       if (vazio) valido = false;
     });
 
@@ -99,10 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const nome = document.getElementById("nome").value.trim();
-    const empresa = document.getElementById("empresa").value.trim();
-    const contato = document.getElementById("contato").value.trim();
-    const mensagem = document.getElementById("mensagem").value.trim();
+    const nome = val("nome");
+    const empresa = val("empresa");
+    const contato = val("campo-contato");
+    const mensagem = val("mensagem");
 
     const texto =
       `Olá, CODEBGs! Quero automatizar um processo.\n\n` +
