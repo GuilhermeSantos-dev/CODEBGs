@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CODEBGs — Automação de processos com N8N</title>
+  <meta name="description" content="A CODEBGs transforma horas de trabalho manual em fluxos automáticos com N8N. Automação de processos, integração de sistemas e consultoria. Sede em São Paulo." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CODEBGs — Automação de processos com N8N" />
+  <meta property="og:description" content="Transformamos horas de trabalho manual em fluxos que rodam sozinhos." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (SVG inline) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080810'/%3E%3Ccircle cx='9' cy='16' r='3' fill='%236c6cff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%2337e0c4'/%3E%3Ccircle cx='23' cy='23' r='3' fill='%2337e0c4'/%3E%3Cpath d='M11 15 L21 10 M11 17 L21 22' stroke='%236c6cff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Fundo ambiente -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="brand" aria-label="CODEBGs — início">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+        <circle cx="9" cy="16" r="3.2" fill="var(--pulse)" />
+        <circle cx="23" cy="9" r="3.2" fill="var(--spark)" />
+        <circle cx="23" cy="23" r="3.2" fill="var(--spark)" />
+        <path d="M11.5 14.8 L20.5 10.2 M11.5 17.2 L20.5 21.8" stroke="var(--pulse)" stroke-width="1.6" fill="none" />
+      </svg>
+      <span class="brand-name">CODE<span>BGs</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <a href="#contato" class="btn btn-ghost nav-cta">Fale com a gente</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Automação com N8N</span>
+        <h1>Transformamos horas de trabalho manual em fluxos que&nbsp;rodam <span class="grad">sozinhos</span>.</h1>
+        <p class="lead">
+          Somos a CODEBGs. Conectamos seus sistemas, eliminamos tarefas repetitivas
+          e devolvemos o tempo da sua equipe — com automações sob medida em N8N.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">Falar no WhatsApp</a>
+          <a href="#projetos" class="btn btn-outline">Ver projetos</a>
+        </div>
+
+        <ul class="hero-pills" aria-label="Nossos pilares">
+          <li>Integração</li>
+          <li>Eficiência</li>
+          <li>Escala</li>
+        </ul>
+      </div>
+
+      <!-- Elemento-assinatura: diagrama de fluxo animado -->
+      <div class="flow reveal" aria-label="Ilustração de um fluxo de automação: uma tarefa manual é convertida em ações automáticas" role="img">
+        <div class="flow-frame">
+          <div class="flow-head">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="flow-title">fluxo_codebgs.n8n</span>
+          </div>
+
+          <svg class="flow-svg" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Fios -->
+            <path class="wire" d="M120 150 C 190 150, 190 62, 300 62" />
+            <path class="wire" d="M120 150 C 190 150, 190 150, 300 150" />
+            <path class="wire" d="M120 150 C 190 150, 190 238, 300 238" />
+            <!-- Fios com dados correndo -->
+            <path class="wire flow-line" d="M120 150 C 190 150, 190 62, 300 62" />
+            <path class="wire flow-line" style="animation-delay:.6s" d="M120 150 C 190 150, 190 150, 300 150" />
+            <path class="wire flow-line" style="animation-delay:1.2s" d="M120 150 C 190 150, 190 238, 300 238" />
+
+            <!-- Nó de entrada: tarefa manual -->
+            <g class="node node-in">
+              <rect x="18" y="122" width="102" height="56" rx="12" />
+              <circle cx="40" cy="150" r="9" class="node-icon-bg" />
+              <path d="M40 145 v5 l3 2" class="node-icon" />
+              <text x="58" y="146" class="node-label">Tarefa</text>
+              <text x="58" y="160" class="node-label dim">manual</text>
+            </g>
+
+            <!-- Nó central: N8N -->
+            <g class="node node-hub">
+              <rect x="300" y="122" width="102" height="56" rx="12" />
+              <circle cx="322" cy="150" r="9" class="hub-dot" />
+              <text x="340" y="146" class="node-label">Fluxo</text>
+              <text x="340" y="160" class="node-label dim">N8N</text>
+            </g>
+
+            <!-- Saídas automáticas -->
+            <g class="node node-out" style="--d:.3s">
+              <rect x="300" y="36" width="102" height="52" rx="12" />
+              <circle cx="322" cy="62" r="7" class="out-dot" />
+              <text x="338" y="59" class="node-label sm">Sincroniza</text>
+              <text x="338" y="72" class="node-label dim sm">CRM</text>
+            </g>
+            <g class="node node-out" style="--d:.9s">
+              <rect x="300" y="212" width="102" height="52" rx="12" />
+              <circle cx="322" cy="238" r="7" class="out-dot" />
+              <text x="338" y="235" class="node-label sm">Dispara</text>
+              <text x="338" y="248" class="node-label dim sm">e-mail</text>
+            </g>
+          </svg>
+
+          <div class="flow-foot">
+            <span class="status"><span class="status-dot"></span>Rodando 24/7</span>
+            <span class="flow-metric">3.4s / execução</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+      <div class="section-head reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Sobre a CODEBGs</span>
+        <h2>Nascemos em São Paulo para acabar com o trabalho repetitivo.</h2>
+      </div>
+      <div class="about-grid">
+        <p class="about-text reveal">
+          A ideia por trás da CODEBGs é simples: nenhum time deveria perder o dia copiando
+          dados de um sistema para outro. Somos uma empresa de tecnologia de São Paulo focada
+          em desenhar e construir automações que fazem o trabalho chato desaparecer.
+          <br /><br />
+          Cada projeto começa entendendo a sua operação de perto. Depois, montamos os fluxos
+          no N8N, conectamos as ferramentas que você já usa e deixamos tudo rodando — com
+          monitoramento e ajustes contínuos.
+        </p>
+        <ul class="about-facts reveal">
+          <li>
+            <span class="fact-k">Base</span>
+            <span class="fact-v">São Paulo, Brasil</span>
+          </li>
+          <li>
+            <span class="fact-k">Stack</span>
+            <span class="fact-v">N8N, APIs e integrações</span>
+          </li>
+          <li>
+            <span class="fact-k">Foco</span>
+            <span class="fact-v">Processos que rodam sozinhos</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="section" id="servicos">
+      <div class="section-head reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Serviços</span>
+        <h2>Do gargalo manual ao fluxo automático.</h2>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 12h4l3-7 4 14 3-7h2" /></svg>
+          </div>
+          <h3>Automação de processos</h3>
+          <p>
+            Mapeamos suas tarefas repetitivas e as transformamos em fluxos automáticos
+            no N8N — que rodam 24/7, sem intervenção manual e sem erro de digitação.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6H15.5M6 8.5V15.5M8 16l8-8"/></svg>
+          </div>
+          <h3>Integração de sistemas</h3>
+          <p>
+            Conectamos ERPs, CRMs, planilhas, e-mails e APIs para que a informação
+            circule sozinha entre as ferramentas — sem retrabalho e sem copiar e colar.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 19h16M6 19V9m5 10V5m5 14v-6"/></svg>
+          </div>
+          <h3>Consultoria de processos</h3>
+          <p>
+            Analisamos sua operação, identificamos os gargalos e desenhamos o caminho
+            mais curto entre o trabalho manual de hoje e a automação de amanhã.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="section" id="projetos">
+      <div class="section-head reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Projetos</span>
+        <h2>Alguns fluxos que já colocamos para rodar.</h2>
+        <p class="section-sub">Exemplos ilustrativos — troque os links pelos seus cases reais.</p>
+      </div>
+
+      <div class="projects">
+        <!-- Substitua href="#" pelo link real de cada projeto/case -->
+        <a class="project reveal" href="#" target="_blank" rel="noopener">
+          <span class="project-tag">CRM · Financeiro</span>
+          <h3>Sincronização CRM ↔ Financeiro</h3>
+          <p>Toda venda fechada no CRM vira lançamento financeiro automaticamente, sem ninguém digitar nada.</p>
+          <span class="project-link">Ver projeto <svg viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></span>
+        </a>
+
+        <a class="project reveal" href="#" target="_blank" rel="noopener">
+          <span class="project-tag">Onboarding</span>
+          <h3>Onboarding de clientes automático</h3>
+          <p>Cliente novo recebe boas-vindas, acessos e documentos em minutos — disparado por um único gatilho.</p>
+          <span class="project-link">Ver projeto <svg viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></span>
+        </a>
+
+        <a class="project reveal" href="#" target="_blank" rel="noopener">
+          <span class="project-tag">Relatórios</span>
+          <h3>Relatórios diários no WhatsApp</h3>
+          <p>Números do dia coletados de várias fontes e entregues prontos no grupo da equipe toda manhã.</p>
+          <span class="project-link">Ver projeto <svg viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section contact" id="contato">
+      <div class="contact-inner">
+        <div class="contact-left reveal">
+          <span class="eyebrow"><span class="eyebrow-dot"></span>Contato</span>
+          <h2>Vamos automatizar o seu próximo processo?</h2>
+          <p class="lead">
+            Conte rapidinho o que trava a sua operação. A gente responde com uma
+            ideia de fluxo e os próximos passos.
+          </p>
+
+          <div class="contact-direct">
+            <a class="contact-chip whats" href="#" id="whatsDirect" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Z"/><path d="M8.5 8c-.3 0-.6.1-.8.4-.3.4-1 .9-1 2.2s1 2.6 1.1 2.8c.2.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.6 0 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4l-.9-.5c-.4-.2-1.4-.7-1.6-.8-.2 0-.4-.1-.6.2l-.8 1c-.2.2-.3.2-.6.1-.4-.2-1.2-.5-2.2-1.4-.8-.7-1.3-1.6-1.5-1.9-.1-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5v-.5c0-.2-.6-1.4-.8-1.9-.2-.4-.4-.4-.6-.4Z" fill="var(--void)"/></svg>
+              WhatsApp
+            </a>
+            <a class="contact-chip insta" href="https://instagram.com/codebgs" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"/></svg>
+              @codebgs
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulário de captação de leads.
+             Ao enviar, abre o WhatsApp com os dados preenchidos (não precisa de servidor).
+             Para receber por e-mail, veja as instruções no README (Formspree). -->
+        <form class="lead-form reveal" id="leadForm" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required />
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa" />
+          </div>
+          <div class="field">
+            <label for="contato">WhatsApp ou e-mail</label>
+            <input type="text" id="contato" name="contato" placeholder="(11) 99999-9999" required />
+          </div>
+          <div class="field">
+            <label for="mensagem">O que você quer automatizar?</label>
+            <textarea id="mensagem" name="mensagem" rows="3" placeholder="Ex.: preciso sincronizar meus pedidos com o financeiro..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Enviar e continuar no WhatsApp</button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#top" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+          <circle cx="9" cy="16" r="3.2" fill="var(--pulse)" />
+          <circle cx="23" cy="9" r="3.2" fill="var(--spark)" />
+          <circle cx="23" cy="23" r="3.2" fill="var(--spark)" />
+          <path d="M11.5 14.8 L20.5 10.2 M11.5 17.2 L20.5 21.8" stroke="var(--pulse)" stroke-width="1.6" fill="none" />
+        </svg>
+        <span class="brand-name">CODE<span>BGs</span></span>
+      </a>
+      <p class="footer-tag">Integração · Eficiência · Escala — São Paulo, Brasil</p>
+      <div class="footer-links">
+        <a href="#" id="whatsFooter" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://instagram.com/codebgs" target="_blank" rel="noopener">Instagram</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+    <p class="copyright">© <span id="year"></span> CODEBGs Technologies. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
