@@ -4,7 +4,7 @@
 
 /* >>> AJUSTE AQUI: número do WhatsApp (formato internacional, só dígitos)
    Ex.: 55 (Brasil) + 11 (DDD) + número. Sem espaços, sem +, sem traços. */
-const WHATSAPP_NUMERO = "5511999999999";
+const WHATSAPP_NUMERO = "5511922316433";
 
 const WHATSAPP_MSG_PADRAO =
   "Olá, CODEBGs! Encontrei vocês pela landing page e quero automatizar um processo.";
